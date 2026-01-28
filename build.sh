@@ -97,7 +97,7 @@ echo "▶ Using - $MODULE_DIR/phpcs.xml"
 # --------------------------------------------------
 # 3. PHP Compatibility (PHP 8.2)
 # --------------------------------------------------
-echo "▶ Running PHPCompatibility (PHP 8.1)"
+echo "▶ Running PHPCompatibility (PHP 8.2)"
 "$PHPCS_BIN" \
   --standard=PHPCompatibility \
   --runtime-set testVersion 8.2 \

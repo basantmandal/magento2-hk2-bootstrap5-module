@@ -1,6 +1,6 @@
 {
   "name": "hk2/addbootstrap5",
-  "description": "Magento 2 module to add Bootstrap 4 & 5 support with CDN-based assets and admin configuration.",
+  "description": "Magento 2 extension that enables administrators to load Bootstrap 4 or Bootstrap 5 on the storefront without modifying theme files or creating child themes.",
   "type": "magento2-module",
   "require": {
     "php": "^8.2",
@@ -15,8 +15,7 @@
     {
       "name": "Basant Mandal",
       "email": "support@basantmandal.in",
-      "homepage": "https://www.basantmandal.in",
-      "role": "Technical Support"
+      "homepage": "https://www.basantmandal.in"
     }
   ],
   "keywords": [
