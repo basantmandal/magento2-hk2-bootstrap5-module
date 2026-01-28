@@ -1,186 +1,248 @@
-# HK2 Adds Bootstrap 5 - Support in Magento2
+# HK2 AddBootstrap5 for Magento 2
 
-HK2 Add Bootstrap 5 Module adds Bootstrap 5 Support in the Default or Active Theme. Bootstrap 5 is the newest version of
-Bootstrap and is the world's most popular framework for building responsive, mobile-first sites. Bootstrap is an
-open-source framework that allows you to create responsive, professional-looking websites with ease.
+## Description
 
-For backward compatibility you can also select Bootstrap 4 from Module Configuration - Available at Magento Admin -> HK2
-Add Bootstrap 5.
+**HK2 AddBootstrap5** is a Magento 2 extension that allows store administrators to load the Bootstrap frontend
+framework (Bootstrap 4 and 5) into the storefront **without modifying theme files or deploying custom child themes**.
 
-> Please note:- This Module enables Bootstrap 5 in Magento Frontend not in Admin/Backend.
+This is especially useful for stores that require Bootstrap for third-party integrations, CMS content styling, or rapid
+frontend prototyping while maintaining upgrade-safe Magento themes.
 
-## 💰 Account & Pricing
+> ⚠ **Note:** For manual installation, the **HK2 Core package** is required. Install `hk2/core` before using this
+> module.
 
-This is a Open Source - Free to use Module. No charge or any fee is there to use it.
+---
 
-## 🧐 Features
+## Key Features
 
-1. It uses Bootstrap 5 CDN - Reduces Server Load & Offers better performance, reliability, and security.
-2. It loads Bootstrap CSS, Only If Enabled from Admin Backend.
-3. No Page Slow Loading Issues.
-4. Uses minified version of Bootstrap 5 CSS.
-5. Open Source - Feel Free to send your suggestions of any changes/improvements, will be happy to add the changes.
-6. Backward Compatibility for Bootstrap 4
+* **Bootstrap Version Selection**
+  Supports Bootstrap versions **4.x and 5.x** (including latest 5.3 releases).
 
-## 🚀 Supported Version
+* **Admin Configuration**
+  Enable or disable Bootstrap loading directly from the Magento Admin Panel.
 
-- Magento v2.3.5, 2.4.x
+* **CDN-Based Delivery**
+  Loads assets via trusted CDN providers for optimal performance and reduced local asset footprint.
 
-## How to install
+* **Debug Mode (Optional)**
+  Outputs non-intrusive diagnostic information to the browser console to assist with frontend troubleshooting.
 
-### Method 1: Install ready-to-paste package
+* **Demo Pages Included**
+  Provides example frontend routes to verify Bootstrap integration after installation.
 
-[Download Link - HK2 - Add Boostrap5 - (https://github.com/basantmandal/HK2-Add_Bootstrap5/releases/tag/2.0.0)](https://github.com/basantmandal/HK2-Add_Bootstrap5/releases/tag/2.0.0)
+* **No Theme Overrides Required**
+  Uses Magento’s standard layout and page configuration APIs.
 
-Download the zip package and unzip it in app/code folder.
+* **Non-Intrusive by Design**
+  Does not override Magento Luma styles, templates, or UI components. Only registers Bootstrap assets; usage is entirely
+  up to the storefront.
 
-## Enable Extension
+---
 
-```bash
-php bin/magento module:enable HK2_AddBootstrap5
-```
+## System Requirements
 
-```bash
-php bin/magento setup:upgrade
-```
+* **Magento Open Source / Adobe Commerce:** 2.4.x
+* **PHP:** 8.1 or higher
+* **Database:** MySQL 8.0 / MariaDB 10.4+ (compatible with Magento 2.4.x)
+* **Dependencies:** `hk2/core` v1.0+ (required for manual installation)
 
-```bash
-php bin/magento setup:static-content:deploy
-```
+> Magento 2.3.x is end-of-life and not supported.
 
-```bash
-php bin/magento cache:flush
-```
+---
 
-## Disable Extension
+## Installation
 
-```bash
-php bin/magento module:disable HK2_AddBootstrap5
-```
+### Option 1: Composer (Recommended)
 
-```bash
-php bin/magentosetup:upgrade
-```
-
-```bash
-php bin/magento cache:flush
-```
-
-## Backend Settings
-
-Login to Magento Admin -> Add Bootstrap5 -> Configuration -> Enable
-
-Please clear the cache after enabling the option.
-
-Once Installed, You can check in Magento Frontend - View Page Source (Right Click - View Page Source) & you can see
-Bootstrap 5 CDN is Added. Please check the screenshot in case you have any doubts.
-
-Note:- This module enables Bootstrap CDN in Magento Frontend.
-
-### Method 2: Install via composer (Recommend)
-
-Run the following command in Magento 2 root folder
+Run the following command from your Magento root directory:
 
 ```bash
 composer require hk2/addbootstrap5
 ```
 
+This will automatically install the required **HK2 Core** package.
+
+### Option 2: Manual Installation
+
+1. Ensure the **HK2 Core** module is installed:
+
+   ```
+   app/code/HK2/Core
+   ```
+
+2. Create the module directory:
+
+   ```
+   app/code/HK2/AddBootstrap5
+   ```
+
+3. Copy the module files into the directory.
+
+---
+
+### Enable the Module
+
+After installation, run:
+
 ```bash
+php bin/magento module:enable HK2_AddBootstrap5
 php bin/magento setup:upgrade
+php bin/magento cache:flush
 ```
 
-```bash
-php bin/magento setup:static-content:deploy
-```
+> In production mode, optionally run:
+>
+> ```bash
+> php bin/magento setup:di:compile
+> php bin/magento setup:static-content:deploy
+> ```
 
-Note: It is always recommended to install and verify the extension first in the development or staging environment and
-once verified then install it on production environment.
+---
 
-## Screenshots
+## Configuration
 
-1. Admin Panel - Settings
-   ![Screenshot1](docs/images/ScreenShot1.png)
+1. Log in to the Magento Admin Panel.
+2. Navigate to **Stores → Configuration → HK2 → AddBootstrap5**.
 
-2. Boostrap5 CSS - Addition
-   ![Screenshot2](docs/images/ScreenShot2.png)
+### Admin Configuration Options
 
-3. Boostrap5 Demo
-   ![Screenshot3](docs/images/ScreenShot6.jpg)
+| Setting                  | Description                                               |
+|--------------------------|-----------------------------------------------------------|
+| Enable Extension         | Enables or disables Bootstrap injection on the storefront |
+| Select Bootstrap Version | Choose Bootstrap version (4.x or 5.x)                     |
+| Select CDN Provider      | Choose CDN provider for Bootstrap assets                  |
+| Enable Debug Mode        | Outputs diagnostic info to the browser console            |
 
-4. Boostrap4 Demo
-   ![Screenshot4](docs/images/ScreenShot7.jpg)
+---
 
-## 🛠️ Maintenance mode
+### Demo & Links
 
-You may want to enable the maintenance mode when installing or updating the module, especially when working on a production website. To do so, run the two commands below before and after running the other setup commands:
+The module includes admin-visible demo links:
 
-### Enable Maintenance Mode
+* **Bootstrap 5 Demo** – Admin link: *Bootstrap 5 Demo*
+* **Bootstrap 4 Demo** – Admin link: *Bootstrap 4 Demo*
 
-```bash
-php bin/magento maintenance:enable
-```
+Frontend demo routes for validation:
 
-### Disable Maintenance Mode
+* **Bootstrap 5 Demo:**
 
-```bash
-php bin/magento maintenance:disable
-```
+  ```
+  https://yourstore.com/bootstrap5demo/demo/index/version/5
+  ```
 
-## 🤫 Privacy
+* **Bootstrap 4 Demo:**
 
-This extension does not read, change, store, or transmit any of your personal data (e.g., logins, passwords, messages, contacts) from any of the sites or your computer in absolutely any form.
+  ```
+  https://yourstore.com/bootstrap5demo/demo/index/version/4
+  ```
 
-## 📫 Support
+> Demo routes are provided for testing only and can be disabled in production.
 
-For support or any bug report or changes mail me at - <support@hashtagkitto.co.in>
+---
 
-## 🐞 Bug Report
+## Frontend Asset Injection
 
-Please open an [issue](https://github.com/basantmandal/HK2-Add_Bootstrap5/issues) on GitHub.
+When enabled, the module registers the following assets using Magento’s page configuration system:
 
-When filing a bug remember that the better written the bug is, the more likely it is to be fixed.
+* Bootstrap CSS (remote CDN)
+* Bootstrap JavaScript bundle (remote CDN)
+* Optional debug JavaScript (local, RequireJS-based)
 
-You can also reach us at <support@hashtagkitto.co.in>
+Assets are added in a **CSP-compliant and production-safe manner**.
 
-## 🍰 Contribution Guidelines 💖
+---
 
-Contributions are welcome! If you’d like to contribute to this project:
+## Content Security Policy (CSP)
 
-- Fork the repository.
-- Create a new branch (git checkout -b feature/your-feature-name).
-- Make your changes and commit them (git commit -am 'Add new feature').
-- Push to the branch (git push origin feature/your-feature-name).
-- Open a pull request.
+This extension includes a `csp_whitelist.xml` file to allow Bootstrap assets in compliance with Magento 2.4.x CSP
+enforcement.
 
-**Please Note** :- I may be a bit delayed in responding or slow in responding due to low amount of free time. I apologize for the inconvenience and I appreciate your patience
+The module **does not use**:
 
-## 🤝 Consent
+* Inline JavaScript
+* `unsafe-inline` or `unsafe-eval`
+* Dynamic script injection
 
-By using any Product/Module/Application from Basant Mandal A.K.A (HK2 - Hash Tag Kitto), you hereby consent to our disclaimer and agree to its terms.
+**Included CSP directives**:
 
-## 📢 Disclaimer
+* `script-src` – trusted CDNs
+* `style-src` – trusted CDNs
+* `font-src` – trusted CDNs (required for Bootstrap fonts)
+* `connect-src` – trusted CDNs
+* `img-src` – your own domain or allowed external hosts
 
-> **Basant Mandal (HK2 - Hash Tag Kitto)** does not make any warranties about the completeness, reliability and accuracy of this image or its related products. Any action you take upon the information you find here is strictly at your own risk.
+---
 
-> **Basant Mandal (HK2 - Hash Tag Kitto)** will not be liable for any losses and/or damages in connection with the use of our website.
+## Privacy
 
-## 💖Like my work? Help Us
+This extension **does not collect, transmit, or store any personal or usage data**.
 
-Please rate my project or give some stars at [https://github.com/basantmandal/HK2-Add_Bootstrap5-Magento-Module](https://github.com/basantmandal/HK2-Add_Bootstrap5-Magento-Module). You can also contribute to make my Open Source Contribution more frequent and help others - [https://www.buymeacoffee.com/basantmandal](https://www.buymeacoffee.com/basantmandal) or [https://www.basantmandal.in/buymecoffee](https://www.basantmandal.in/buymecoffee)
+No outbound network requests are made other than loading Bootstrap assets from configured CDN providers.
 
-## 📫 Feedback
+---
 
-If you have any feedback, please reach out to us at <support@hashtagkitto.co.in>
+## Troubleshooting
 
-## 🔗 Links:
+If Bootstrap styles or scripts do not load:
 
-Feel free to reach me through the below handles if you'd like to contact me.
+1. Verify the module is enabled in **Stores → Configuration**.
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.basantmandal.in/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/basantmandal/)
+2. Flush Magento cache:
 
-## 📜 License:
+   ```bash
+   php bin/magento cache:flush
+   ```
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+3. Check browser console for CSP or network errors.
+
+4. Ensure your store is running Magento 2.4.x with CSP enabled.
+
+5. Enable **Debug Mode** for diagnostic output.
+
+---
+
+## Compatibility & Performance
+
+* Compatible with Magento 2.4.x frontend architecture
+* Uses Magento PageConfig and RequireJS
+* Safe for production mode
+* Compatible with static content deployment
+* No direct theme overrides
+
+---
+
+## Known Limitations
+
+* The module does **not automatically restyle Magento UI components** to Bootstrap.
+* Theme-level styling conflicts are the responsibility of the storefront implementation.
+* Bootstrap JavaScript components require compatible markup to function correctly.
+
+---
+
+## Support
+
+For bug reports or feature requests, please use the extension’s repository issue tracker or contact the maintainer via
+the Magento Marketplace listing.
+
+---
+
+## License
+
+This extension is licensed under the **Open Software License (OSL-3.0)**, in accordance with Magento Marketplace
+requirements.
+
+---
+
+## Marketplace Readiness Summary
+
+* Magento 2.4.x compatible
+* CSP-compliant (`script-src`, `style-src`, `font-src`, `connect-src`, `img-src`)
+* No inline JavaScript
+* Composer-installable
+* HK2 Core dependency documented
+* Privacy disclosure included
+* Admin-configurable
+* Demo links included
+* Non-intrusive to theme and UI
+
+---
