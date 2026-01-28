@@ -1,126 +1,200 @@
-# HK2 AddBootstrap5 Magento 2 Module — Installation Guide
+# Installation Guide
 
-This guide explains how to install and configure the **HK2 AddBootstrap5** module in Magento 2.
+**HK2 AddBootstrap5 for Magento 2**
+
+This document explains how to install and activate the **HK2 AddBootstrap5** extension, including its required dependency **HK2 Core**.
 
 ---
 
-## System Requirements
+## Prerequisites
 
-* **Magento Open Source / Adobe Commerce:** 2.4.x
-* **PHP:** 8.1 or higher
-* **Database:** MySQL 5.7+ or compatible
+Before installation, ensure your system meets the following requirements:
 
-> Note: Magento 2.3.x is not supported.
+* Magento Open Source / Adobe Commerce **2.4.x**
+* PHP **8.1 or higher**
+* Composer **2.x**
+* Command-line access to the Magento root directory
+
+> ⚠ Magento 2.3.x is end-of-life and not supported.
+
+---
+
+## Required Dependency
+
+This module depends on **HK2 Core**.
+
+* Package name: `hk2/core`
+* Namespace: `HK2_Core`
+* Required for both **Composer** and **manual** installations
 
 ---
 
 ## Installation Methods
 
-### Method 1: Composer (Recommended)
+### Option 1: Composer Installation (Recommended)
 
-1. Navigate to your Magento 2 root directory via terminal.
-2. Run the following command:
+Composer will automatically install **HK2 Core** as a dependency.
+
+From the Magento root directory, run:
 
 ```bash
 composer require hk2/addbootstrap5
 ```
 
-1. Enable and configure the module:
+After installation, proceed to Enable the Module.
+
+---
+
+### Option 2: Manual Installation
+
+Use this method only if Composer is not available. You can install it from any one from below urls.
+
+---
+
+#### Step 1: Install HK2 Core
+
+* **Download HK2 Core** - <https://github.com/basantmandal/magento2-hk2-core/archive/refs/tags/1.0.0.zip>
+  
+Ensure the following directory exists:
+
+```
+app/code/HK2/Core
+```
+
+If not, copy the **HK2 Core** module into this location.
+
+#### Step 2: Install HK2 AddBootstrap5
+
+* **Download HK2 AddBootstrap5** - <https://github.com/basantmandal/magento2-addbootstrap5/archive/refs/tags/3.0.0.zip>
+  
+Create the module directory:
 
 ```bash
-php bin/magento module:enable HK2_AddBootstrap5
+app/code/HK2/AddBootstrap5
+```
+
+Copy all module files into this directory.
+
+---
+
+## Enable the Module
+
+After installing both modules, run the following commands from the Magento root:
+
+```bash
+php bin/magento module:enable HK2_Core HK2_AddBootstrap5
 php bin/magento setup:upgrade
-php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy -f
-php bin/magento cache:clean
-```
-
----
-
-### Method 2: Manual Installation
-
-1. Download or clone the module repository.
-2. Create the directory structure:
-
-```
-app/code/HK2/AddBootstrap5/
-```
-
-1. Copy all module files into the folder above.
-2. Enable and configure the module using the commands in Method 1.
-
----
-
-## Post-Installation Steps
-
-### 1. Clear Cache
-
-```bash
 php bin/magento cache:flush
 ```
 
-### 2. Deploy Static Content (if in production)
+---
+
+### Production Mode (Optional)
+
+If your store is in production mode, also run:
 
 ```bash
-php bin/magento setup:static-content:deploy -f
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy
 ```
 
 ---
 
-## Admin Configuration
+## Verify Installation
 
 1. Log in to the Magento Admin Panel.
-2. Navigate to **Stores → Configuration → HK2 → AddBootstrap5**.
-3. Configure the following settings:
 
-| Setting               | Description                                           |
-| --------------------- | ----------------------------------------------------- |
-| **Enable Module**     | Toggle to enable or disable Bootstrap asset injection |
-| **Bootstrap Version** | Select your desired version (Bootstrap 4.x or 5.x)    |
-| **Debug Mode**        | Enable to output debug logs in the browser console    |
+2. Navigate to:
 
-1. Save the configuration. Changes take effect immediately on the storefront.
+   **Stores → Configuration → HK2 → AddBootstrap5**
+
+3. Enable the extension and select the desired Bootstrap version.
+
+4. Save configuration and refresh cache if prompted.
 
 ---
 
-## Demo Pages
+## Demo Pages (Optional Verification)
 
-After enabling the module, you can verify Bootstrap integration via the included demo pages:
+The module provides demo routes for testing:
 
-* **Bootstrap 5 Demo:**
+**Bootstrap 5**
 
-  ```
-  https://yourstore.com/bootstrap5demo/demo/index/version/5
-  ```
+```
+https://yourstore.com/bootstrap5demo/demo/index/version/5
+```
 
-* **Bootstrap 4 Demo:**
+**Bootstrap 4**
 
-  ```
-  https://yourstore.com/bootstrap5demo/demo/index/version/4
-  ```
+```
+https://yourstore.com/bootstrap5demo/demo/index/version/4
+```
 
-> Replace `yourstore.com` with your actual domain.
+> Demo routes are intended for validation and can be disabled in production environments.
 
 ---
 
 ## Troubleshooting
 
-* **Bootstrap not loading:**
+If the extension does not appear or Bootstrap assets are not loading:
 
-  * Ensure the module is enabled in **Admin → Configuration**.
-  * Flush the Magento cache (`php bin/magento cache:flush`).
-  * Check browser console for 404 errors or blocked CDN assets.
+1. Confirm both modules are enabled:
 
-* **Debug Mode:**
+   ```bash
+   php bin/magento module:status HK2_Core HK2_AddBootstrap5
+   ```
 
-  * Enable “Debug Mode” in configuration to log Bootstrap version, CDN URL, and other diagnostics.
+2. Flush cache:
+
+   ```bash
+   php bin/magento cache:flush
+   ```
+
+3. Check `var/log/system.log` and browser console for errors.
+
+4. Ensure Content Security Policy (CSP) is not blocking CDN assets.
 
 ---
 
-## Notes
+## Uninstallation
 
-* No theme files are overridden.
-* Assets are loaded via CDN for performance and security.
-* Fully compliant with Magento 2.4.x CSP.
+### Composer
+
+```bash
+composer remove hk2/addbootstrap5
+php bin/magento setup:upgrade
+php bin/magento cache:flush
+```
+
+### Manual
+
+1. Disable the module:
+
+   ```bash
+   php bin/magento module:disable HK2_AddBootstrap5
+   ```
+
+2. Remove the directory:
+
+   ```
+   app/code/HK2/AddBootstrap5
+   ```
+
+3. Run:
+
+   ```bash
+   php bin/magento setup:upgrade
+   php bin/magento cache:flush
+   ```
+
+---
+
+## Support
+
+For issues related to installation:
+
+* Email: [support@basantmandal.in](mailto:support@basantmandal.in)
+* Website: [https://www.basantmandal.in](https://www.basantmandal.in)
+* LinkedIn: [https://www.linkedin.com/in/basantmandal](https://www.linkedin.com/in/basantmandal)
 
 ---
