@@ -2,11 +2,11 @@
 
 **HK2 AddBootstrap5 for Magento 2**
 
-This document explains how to install and activate the **HK2 AddBootstrap5** extension, including its required dependency **HK2 Core**.
+This document explains how to install and activate the **HK2 AddBootstrap5** extension, including its required dependency **HK2 Core**. HK2 Core is a **required dependency** for all other HK2 Magento 2 extensions and must be installed **before** any additional HK2 modules.
 
 ---
 
-## Prerequisites
+## ✅ System Requirements
 
 Before installation, ensure your system meets the following requirements:
 
@@ -29,7 +29,7 @@ This module depends on **HK2 Core**.
 
 ---
 
-## Installation Methods
+## 📦 Installation Methods
 
 ### Option 1: Composer Installation (Recommended)
 
@@ -100,7 +100,7 @@ php bin/magento setup:static-content:deploy
 
 ---
 
-## Verify Installation
+## 🔎 Verify Installation
 
 1. Log in to the Magento Admin Panel.
 
@@ -134,7 +134,7 @@ https://yourstore.com/bootstrap5demo/demo/index/version/4
 
 ---
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 If the extension does not appear or Bootstrap assets are not loading:
 
@@ -156,7 +156,7 @@ If the extension does not appear or Bootstrap assets are not loading:
 
 ---
 
-## Uninstallation
+## ❌ Uninstallation
 
 ### Composer
 
@@ -176,7 +176,7 @@ php bin/magento cache:flush
 
 2. Remove the directory:
 
-   ```
+   ```bash
    app/code/HK2/AddBootstrap5
    ```
 
@@ -189,7 +189,7 @@ php bin/magento cache:flush
 
 ---
 
-## Support
+## 📫 Support
 
 For issues related to installation:
 
