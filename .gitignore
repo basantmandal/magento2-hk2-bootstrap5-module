@@ -1,8 +1,59 @@
+/PATCH_*.sh
 /.idea/
 /vendor/
 /node_modules/
 /pub/static/
 /generated/
 /var/
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux temporary files
+*~
+
+# macOS system files
 .DS_Store
+._*
+.localized
+__MACOSX
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Others
+*.zip
+*.tar.gz
+build/*
+!build/.gitkeep
+dist/*
+!dist/.gitkeep
+*.gz
+*.sql
 *.log
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/*
+!.idea/.gitkeep
+*.swp
+*.swo
+eslint-errors.txt
+
+# Temp Folder
+temp/mysql/backup/*
+!temp/mysql/backup/
+!temp/mysql/backup/.gitkeep
+
+# Magento Folder
+src/*
+.DS_Store
