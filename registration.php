@@ -16,8 +16,10 @@
  * @link      https://www.basantmandal.in/
  */
 
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+use Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(
+    ComponentRegistrar::MODULE,
     'HK2_AddBootstrap5',
     __DIR__
 );
