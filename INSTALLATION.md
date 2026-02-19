@@ -1,6 +1,6 @@
 # Installation Guide
 
-**HK2 AddBootstrap5 for Magento 2**
+## HK2 AddBootstrap5 for Magento 2
 
 This document explains how to install and activate the **HK2 AddBootstrap5** extension, including its required dependency **HK2 Core**. HK2 Core is a **required dependency** for all other HK2 Magento 2 extensions and must be installed **before** any additional HK2 modules.
 
@@ -57,7 +57,7 @@ Use this method only if Composer is not available. You can install it from any o
   
 Ensure the following directory exists:
 
-```
+```bash
 app/code/HK2/Core
 ```
 
@@ -65,7 +65,7 @@ If not, copy the **HK2 Core** module into this location.
 
 #### Step 2: Install HK2 AddBootstrap5
 
-* **Download HK2 AddBootstrap5** - <https://github.com/basantmandal/magento2-addbootstrap5/archive/refs/tags/3.0.0.zip>
+* **Download HK2 AddBootstrap5** - <https://github.com/basantmandal/magento2-hk2-bootstrap5-module/releases>
   
 Create the module directory:
 

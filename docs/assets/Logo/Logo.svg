@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+
+  <defs>
+    <!-- Light Premium Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f7fa"/>
+      <stop offset="50%" stop-color="#e4e8f0"/>
+      <stop offset="100%" stop-color="#d6e4ff"/>
+    </linearGradient>
+
+    <!-- Glass Panel Gradient -->
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <!-- Soft Shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" rx="60" fill="url(#bgGradient)" />
+
+  <!-- Glass Card -->
+  <rect x="100" y="120" width="600" height="560" rx="40"
+        fill="url(#glassGradient)"
+        stroke="#ffffff"
+        stroke-opacity="0.6"
+        filter="url(#shadow)"/>
+
+  <!-- HK2 Brand -->
+  <text x="50%" y="360"
+        text-anchor="middle"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-size="200"
+        font-weight="900"
+        fill="#1e1f4f"
+        letter-spacing="-4">
+    HK2
+  </text>
+
+  <!-- Divider -->
+  <line x1="250" y1="400" x2="550" y2="400"
+        stroke="#1e1f4f"
+        stroke-width="2"
+        opacity="0.25"/>
+
+  <!-- Module Name (EDIT THIS PER MODULE) -->
+  <text x="50%" y="480"
+        text-anchor="middle"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-size="52"
+        font-weight="600"
+        fill="#1e1f4f"
+        letter-spacing="1">
+    Add Bootstrap 5
+   </text>
+
+  <!-- Vendor Credit -->
+  <text x="50%" y="640"
+        text-anchor="middle"
+        font-family="Segoe UI, Arial, sans-serif"
+        font-size="20"
+        font-weight="400"
+        fill="#1e1f4f"
+        opacity="0.7"
+        letter-spacing="1">
+    Developed by Basant Mandal
+  </text>
+
+</svg>

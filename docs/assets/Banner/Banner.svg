@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="360" viewBox="0 0 750 360">
+
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ee672f"/>
+      <stop offset="100%" stop-color="#7952b3"/>
+    </linearGradient>
+
+    <!-- Soft Shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="360" rx="20" fill="url(#bg)" />
+
+  <!-- Left Section Text -->
+  <g transform="translate(70,110)">
+    <text font-family="Segoe UI, Arial, sans-serif"
+          font-size="52"
+          font-weight="800"
+          fill="#ffffff">
+      HK2
+    </text>
+
+    <text y="60"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="28"
+          font-weight="600"
+          fill="#ffffff">
+      Add Bootstrap 5
+    </text>
+
+    <text y="105"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="18"
+          fill="#ffffff"
+          opacity="0.85">
+      Modern UI Upgrade for Magento 2
+    </text>
+  </g>
+
+  <!-- UI Card Mockup -->
+  <g transform="translate(390,70)" filter="url(#shadow)">
+    
+    <!-- Card Background -->
+    <rect width="290" height="220" rx="16" fill="#ffffff"/>
+
+    <!-- Navbar -->
+    <rect width="290" height="40" rx="16" fill="#7952b3"/>
+
+    <!-- Title Line -->
+    <rect x="20" y="70" width="180" height="14" rx="7" fill="#dee2e6"/>
+
+    <!-- Paragraph Lines -->
+    <rect x="20" y="95" width="240" height="12" rx="6" fill="#e9ecef"/>
+    <rect x="20" y="115" width="220" height="12" rx="6" fill="#e9ecef"/>
+
+    <!-- Button -->
+    <rect x="20" y="150" width="120" height="36" rx="8" fill="#0d6efd"/>
+    <text x="80" y="173"
+          text-anchor="middle"
+          font-family="Segoe UI, Arial"
+          font-size="12"
+          font-weight="600"
+          fill="#ffffff">
+      Bootstrap Button
+    </text>
+
+  </g>
+
+  <!-- Magento Accent Shape -->
+  <polygon points="700,0 750,0 750,60"
+           fill="#ffffff"
+           opacity="0.1"/>
+
+</svg>
